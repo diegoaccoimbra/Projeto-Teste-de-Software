@@ -17,7 +17,7 @@ public class teste_2 {
         System.setIn(entrada);
 
         // Obtendo a saída do método inserir_alunos().
-        media_notas.inserir_alunos();
+        Media_Notas.inserir_alunos();
 
         // Verificando se a mensagem exibida está de acordo com a saída simulada acima.
         assertEquals("O limite de alunos é 5! Por favor insira novamente a quantidade de alunos.", );

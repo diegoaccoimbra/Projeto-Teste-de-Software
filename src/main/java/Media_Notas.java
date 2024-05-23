@@ -37,8 +37,8 @@ public class Media_Notas {
                 }
             }
             media = calcular_media(soma);
-            System.out.printf("A média do %dº aluno é %.1f%n", i, media);
-            nota_4(media, soma, menor);
+            System.out.printf("A média do aluno %d é %.1f%n", i, media);
+            resultado(media, soma, menor);
         }
     }
 
@@ -46,28 +46,37 @@ public class Media_Notas {
         return soma / 3;
     }
 
-    public static void nota_4(float media, float soma, float menor) {
+    public static void resultado(float media, float soma, float menor) {
         if (media >= 7) {
             System.out.println("APROVADO");
-        } 
-        else {
+        }
+        else if ((soma - menor) >= 11) {
             System.out.print("Insira a nota da prova 4: ");
             float nota_4 = scanner.nextFloat();
 
             if (nota_4 > menor) {
-                soma = soma - menor + nota_4;
-                media = calcular_media(soma);
+                float nova_media = substituir_nota(soma, menor, nota_4);
 
-                System.out.printf("Nova média: %.1f%n", media);
-                if (media >= 7) {
+                System.out.printf("Nova média: %.1f%n", nova_media);
+                if (nova_media >= 7) {
                     System.out.println("APROVADO");
                 } else {
                     System.out.println("REPROVADO");
                 }
-            } 
+            }
             else {
                 System.out.println("REPROVADO");
             }
+        } 
+        else {
+            System.out.println("REPROVADO");
         }
+    }
+
+    public static float substituir_nota(float soma, float menor, float nota_4) {
+        soma = soma - menor + nota_4;
+        float nova_media = calcular_media(soma);
+
+        return nova_media;
     }
 }

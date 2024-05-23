@@ -2,24 +2,28 @@ package src.test.java;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import src.main.java.Media_Notas;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 public class teste_2 {
     Media_Notas media_notas = new Media_Notas();
 
+    @SuppressWarnings("static-access")
     @Test
 
-    public void test_inserir_alunos() {
-        // Simulando a entrada de um valor maior que 5.
-        String valor_inserido = "6";
-        InputStream entrada = new ByteArrayInputStream(valor_inserido.getBytes());
-        System.setIn(entrada);
+    public void test_inserir_alunos_maior_que_5() {
+        
+        int valor_inserido = 6;
+        
+        // Capturando a saída do sistema
+        ByteArrayOutputStream saida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(saida));
 
-        // Obtendo a saída do método inserir_alunos().
-        Media_Notas.inserir_alunos();
+        media_notas.inserir_alunos(valor_inserido);
 
-        // Verificando se a mensagem exibida está de acordo com a saída simulada acima.
-        assertEquals("O limite de alunos é 5! Por favor insira novamente a quantidade de alunos.", );
+        String saida_esperada = "O limite de alunos é 5! Por favor insira novamente a quantidade de alunos.";
+        String saida_obtida = saida.toString();
+
+        assertTrue(saida_obtida.contains(saida_esperada));
     }
 }

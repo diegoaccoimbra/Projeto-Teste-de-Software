@@ -4,20 +4,17 @@ import java.util.Scanner;
 public class Media_Notas {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        inserir_alunos();
+        inserir_alunos(4);
         scanner.close();
     }
 
-    public static void inserir_alunos() {
-        System.out.print("Informe a quantidade de alunos: ");
-        int quantidade_de_alunos = scanner.nextInt();
-
+    public static void inserir_alunos(int quantidade_de_alunos) {
         if (quantidade_de_alunos <= 5) {
+            System.out.println("---Sistema de Notas---");
             inserir_notas(quantidade_de_alunos);
         }
         else {
             System.out.println("O limite de alunos é 5! Por favor insira novamente a quantidade de alunos.");
-            inserir_alunos();
         }
     }
 
@@ -76,7 +73,6 @@ public class Media_Notas {
     public static float substituir_nota(float soma, float menor, float nota_4) {
         soma = soma - menor + nota_4;
         float nova_media = calcular_media(soma);
-
         return nova_media;
     }
 }

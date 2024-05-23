@@ -1,9 +1,6 @@
 package src.test.java;
-
-import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.*;
 import org.junit.Test;
-
 import src.main.java.Media_Notas;
 
 public class teste_3 {
